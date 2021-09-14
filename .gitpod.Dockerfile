@@ -5,10 +5,10 @@ RUN apt-get -q update && \
     rm -rf /var/lib/apt/lists/* && \
     curl -LO https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh && \
     bash ./Miniforge3-Linux-x86_64.sh -b && \
-    rm -rf Miniforge3-Linux-x86_64.sh && \
-    sudo apt update && \
-    sudo apt upgrade && \
-    sudo apt install nginx && \
-    sudo apt install php-fpm php-mysql && \
-    sudo apt install mysql-server && \
-    sudo apt install phpmyadmin
+    rm -rf Miniforge3-Linux-x86_64.sh
+    
+RUN apt-get update && apt-get install -y \
+    nginx \
+    php-fpm php-mysql \
+    mysql-server \
+    phpmyadmin
